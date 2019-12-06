@@ -71,7 +71,7 @@ FLAGS += -DEPICS_DLL_NO
 
 # Libraries ------------------------------------------
 # EPICS Base
-FLAGS += -L$(EPICS_BASE)/lib/$(EPICS_HOST_ARCH) -ldbStaticHost -lCom -lca
+FLAGS += -L$(EPICS_BASE)/lib/$(EPICS_HOST_ARCH) -lCom -lca
 
 $(OUT):
 	mkdir $(OUT)
