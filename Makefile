@@ -2,11 +2,12 @@
 # and you have to either configure the following
 # or set them as environment variables.
 
-#EPICS_HOST_ARCH = darwin-ppc
-#EPICS_BASE = /Users/kasemir/epics/R3.14.8.2/base
-#EPICS_EXTENSIONS = /Users/kasemir/epics/R3.14.8.2/extensions
-#MEX=/Applications/MATLAB72/bin/mex
-	
+EPICS_HOST_ARCH ?= linux-x86_64
+EPICS_BASE ?= /opt/epics/base
+EPICS_EXTENSIONS ?= /opt/epics/extensions
+#MEX=/Applications/MATLAB72/bin/mex (MATLAB)
+#MEX=mkoctfile --mex (Octave)
+
 ifeq (darwin, $(findstring darwin,$(EPICS_HOST_ARCH)))
 OS_CLASS = Darwin
 MEXOUT = mexmac
