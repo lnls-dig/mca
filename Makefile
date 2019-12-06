@@ -6,6 +6,7 @@ EPICS_HOST_ARCH ?= linux-x86_64
 EPICS_BASE ?= /opt/epics/base
 EPICS_EXTENSIONS ?= /opt/epics/extensions
 TOOL ?= octave
+COMPILER ?= gcc
 #MEX=/Applications/MATLAB72/bin/mex (MATLAB)
 #MEX=mkoctfile --mex (Octave)
 
@@ -67,6 +68,8 @@ FLAGS += -v
 # EPICS Base
 FLAGS += -I$(EPICS_BASE)/include
 FLAGS += -I$(EPICS_BASE)/include/os/$(OS_CLASS)
+FLAGS += -I$(EPICS_BASE)/include/os/$(OS_CLASS)
+FLAGS += -I$(EPICS_BASE)/include/compiler/$(COMPILER)
 FLAGS += -DEPICS_DLL_NO
 
 # Libraries ------------------------------------------
