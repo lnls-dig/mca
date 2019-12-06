@@ -5,6 +5,7 @@
 EPICS_HOST_ARCH ?= linux-x86_64
 EPICS_BASE ?= /opt/epics/base
 EPICS_EXTENSIONS ?= /opt/epics/extensions
+TOOL ?= octave
 #MEX=/Applications/MATLAB72/bin/mex (MATLAB)
 #MEX=mkoctfile --mex (Octave)
 
@@ -14,16 +15,28 @@ MEXOUT = mexmac
 # For Octave:
 # MEXOUT = mex
 # MEX=mkoctfile --mex
+ifeq (octave, $(findstring octave,$(TOOL)))
+MEXOUT = mex
+MEX=mkoctfile --mex
+endif
 endif
 
 ifeq (linux, $(findstring linux,$(EPICS_HOST_ARCH)))
 OS_CLASS = Linux
 MEXOUT = mexglx
+ifeq (octave, $(findstring octave,$(TOOL)))
+MEXOUT = mex
+MEX=mkoctfile --mex
+endif
 endif
 
 ifeq (solaris, $(findstring solaris,$(EPICS_HOST_ARCH)))
 OS_CLASS = solaris
 MEXOUT = mexglx
+ifeq (octave, $(findstring octave,$(TOOL)))
+MEXOUT = mex
+MEX=mkoctfile --mex
+endif
 endif
 
 ifndef MEX
