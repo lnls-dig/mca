@@ -7,6 +7,7 @@ EPICS_BASE ?= /opt/epics/base
 EPICS_EXTENSIONS ?= /opt/epics/extensions
 TOOL ?= octave
 COMPILER ?= gcc
+MATLAB_INSTALL_DIR ?= /opt/epics/extensions/src/mca/matlab
 #MEX=/Applications/MATLAB72/bin/mex (MATLAB)
 #MEX=mkoctfile --mex (Octave)
 
@@ -85,6 +86,7 @@ $(OUT)/mca.$(MEXOUT): mca.cpp MCAError.cpp Channel.cpp
 install: matlab
 	mkdir -p $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
 	cp $(OUT)/mca.$(MEXOUT) $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
+	cp -r matlab $(MATLAB_INSTALL_DIR)/
 
 clean:
 	-rm -rf $(OUT)
