@@ -83,6 +83,7 @@ $(OUT)/mca.$(MEXOUT): mca.cpp MCAError.cpp Channel.cpp
 	$(MEX) $(FLAGS) mca.cpp MCAError.cpp Channel.cpp -o $(OUT)/mca.$(MEXOUT)
 
 install: matlab
+	mkdir -p $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
 	cp $(OUT)/mca.$(MEXOUT) $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
 
 clean:
