@@ -87,7 +87,7 @@ install: matlab
 	mkdir -p $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
 	cp $(OUT)/mca.$(MEXOUT) $(EPICS_EXTENSIONS)/lib/$(EPICS_HOST_ARCH)
 	mkdir -p $(MATLAB_INSTALL_DIR)
-	cp -r matlab $(MATLAB_INSTALL_DIR)/
+	cp -r matlab/. $(MATLAB_INSTALL_DIR)
 
 clean:
 	-rm -rf $(OUT)
